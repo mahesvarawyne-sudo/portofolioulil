@@ -4,310 +4,783 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Mukhammad Ulil Albab | Portofolio</title>
-<meta name="description" content="Portofolio Mukhammad Ulil Albab, mahasiswa Teknologi Pangan IPB University, peneliti dan juara lomba sains tingkat nasional dan internasional.">
+<meta name="description" content="Portofolio Mukhammad Ulil Albab, mahasiswa Departemen Teknologi Pangan IPB University. Pendidikan, prestasi, riset, organisasi, dan keahlian.">
 <meta property="og:title" content="Mukhammad Ulil Albab | Portofolio">
-<meta property="og:description" content="Mahasiswa Teknologi Pangan IPB University. Peneliti dan juara lomba sains tingkat nasional dan internasional.">
+<meta property="og:description" content="Mahasiswa Departemen Teknologi Pangan IPB University. Pendidikan, prestasi, riset, organisasi, dan keahlian.">
 <meta property="og:type" content="website">
+<script>
+  try {
+    var saved = localStorage.getItem("theme");
+    document.documentElement.setAttribute("data-theme", saved === "light" ? "light" : "dark");
+  } catch (e) {
+    document.documentElement.setAttribute("data-theme", "dark");
+  }
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #fafaf7;
-    --surface: #ffffff;
-    --text: #1c1f1d;
-    --muted: #5d6661;
-    --line: #e3e6e1;
-    --accent: #1f7a4d;
-    --accent-soft: #e4f3ea;
+    --bg: #06110c;
+    --panel: rgba(255, 255, 255, .035);
+    --line: rgba(130, 230, 180, .14);
+    --ink: #e9f4ee;
+    --muted: #8fa89c;
+    --accent: #6fe0aa;
+    --accent-ink: #04130c;
+    --pill-bg: rgba(95, 214, 160, .12);
+    --pill-ink: #7be3b2;
+    --grid: 130, 230, 180;
+    --grid-a: .055;
+    --fish: 110, 215, 165;
+    --fish-ch: 205, 245, 225;
+    --gold: 240, 215, 120;
+    --gold-ch: 255, 242, 175;
+    --amber: #f2c14e;
+    --leaf: #5ccf93;
+    --glow: rgba(40, 140, 95, .24);
+    --sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    --mono: ui-monospace, "SF Mono", Menlo, Consolas, "DejaVu Sans Mono", monospace;
   }
-  :root[data-theme="dark"] {
-    --bg: #101412;
-    --surface: #171c19;
-    --text: #e9eeeb;
-    --muted: #9aa5a0;
-    --line: #26302b;
-    --accent: #4fd08a;
-    --accent-soft: #17291f;
+  :root[data-theme="light"] {
+    --bg: #f5f9f7;
+    --panel: rgba(255, 255, 255, .72);
+    --line: rgba(15, 80, 55, .15);
+    --ink: #0c1d15;
+    --muted: #51675c;
+    --accent: #0f7a52;
+    --accent-ink: #ffffff;
+    --pill-bg: rgba(15, 122, 82, .1);
+    --pill-ink: #0b6a46;
+    --grid: 15, 80, 55;
+    --grid-a: .06;
+    --fish: 20, 120, 80;
+    --fish-ch: 6, 62, 38;
+    --gold: 170, 110, 0;
+    --gold-ch: 100, 62, 0;
+    --amber: #9a6200;
+    --leaf: #1f9461;
+    --glow: rgba(60, 180, 130, .2);
   }
+
   * { box-sizing: border-box; }
+  [hidden] { display: none !important; }
   html { scroll-behavior: smooth; }
   body {
     margin: 0;
-    background: var(--bg);
-    color: var(--text);
-    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    background-color: var(--bg);
+    background-image:
+      linear-gradient(rgba(var(--grid), var(--grid-a)) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(var(--grid), var(--grid-a)) 1px, transparent 1px);
+    background-size: 28px 28px;
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 17px;
     line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
   }
-  a { color: var(--accent); text-decoration: none; }
-  a:hover { text-decoration: underline; }
-  .wrap { max-width: 860px; margin: 0 auto; padding: 0 20px; }
+  a { color: inherit; text-decoration-color: var(--accent); text-underline-offset: 3px; }
+  a:hover { color: var(--accent); }
+  button { font-family: var(--sans); }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
 
-  /* Nav */
-  header.nav {
-    position: sticky; top: 0; z-index: 10;
-    background: color-mix(in srgb, var(--bg) 88%, transparent);
-    backdrop-filter: blur(8px);
-    border-bottom: 1px solid var(--line);
+  /* Top bar */
+  .bar { position: absolute; top: 0; left: 0; right: 0; z-index: 3; padding: 18px 0; }
+  .bar .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+  .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; font-weight: 600; letter-spacing: -.01em; }
+  .brand code { font-family: var(--mono); color: var(--accent); font-weight: 500; }
+  .bar nav ul { list-style: none; margin: 0; padding: 0; display: flex; gap: 20px; flex-wrap: wrap; font-size: 14.5px; }
+  .bar nav a { text-decoration: none; color: var(--muted); }
+  .bar nav a:hover { color: var(--ink); }
+  .mode {
+    font-size: 13.5px; color: var(--ink);
+    background: var(--panel); border: 1px solid var(--line);
+    padding: 6px 14px; border-radius: 999px; cursor: pointer;
   }
-  .nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 56px; gap: 12px; }
-  .nav .brand { font-weight: 700; color: var(--text); }
-  .nav ul { list-style: none; display: flex; gap: 18px; margin: 0; padding: 0; font-size: 14px; overflow-x: auto; }
-  .nav ul a { color: var(--muted); white-space: nowrap; }
-  .nav ul a:hover { color: var(--accent); text-decoration: none; }
-  #theme {
-    border: 1px solid var(--line); background: var(--surface); color: var(--text);
-    border-radius: 999px; width: 36px; height: 36px; cursor: pointer; font-size: 16px; flex-shrink: 0;
+  .mode:hover { border-color: var(--accent); }
+  @media (max-width: 900px) {
+    .bar nav { order: 3; width: 100%; overflow-x: auto; }
+    .bar nav ul { flex-wrap: nowrap; white-space: nowrap; gap: 18px; padding-bottom: 4px; }
   }
 
   /* Hero */
-  .hero { padding: 56px 0 40px; }
-  .hero .wrap { display: grid; grid-template-columns: 1fr; gap: 28px; align-items: center; }
-  .photo {
-    width: 160px; height: 160px; border-radius: 50%;
-    object-fit: cover; object-position: center 20%;
-    border: 3px solid var(--accent); background: var(--accent-soft);
+  .hero {
+    position: relative; overflow: hidden;
+    min-height: min(94vh, 880px);
+    display: flex; align-items: center;
+    padding: 120px 0 64px;
+    background: radial-gradient(ellipse 70% 60% at 50% 38%, var(--glow), transparent 70%);
   }
-  .hero h1 { font-size: clamp(28px, 6vw, 42px); line-height: 1.15; margin: 0 0 8px; }
-  .hero .role { color: var(--accent); font-weight: 600; margin: 0 0 14px; }
-  .hero p.lead { color: var(--muted); margin: 0 0 22px; max-width: 560px; }
-  .btns { display: flex; flex-wrap: wrap; gap: 10px; }
+  .hero::before {
+    content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none;
+    background: radial-gradient(ellipse 50% 46% at 24% 52%, color-mix(in srgb, var(--bg) 72%, transparent) 0%, transparent 100%);
+  }
+  .sea {
+    position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0;
+    -webkit-mask-image: linear-gradient(to bottom, #000 78%, transparent 100%);
+    mask-image: linear-gradient(to bottom, #000 78%, transparent 100%);
+  }
+  .hero .wrap { position: relative; z-index: 2; width: 100%; }
+  .tag {
+    display: inline-block; font-family: var(--mono); font-size: .8rem;
+    color: var(--pill-ink); background: var(--pill-bg);
+    border: 1px solid var(--line); border-radius: 999px; padding: 3px 12px; margin-bottom: 22px;
+  }
+  h1 {
+    font-weight: 300; font-size: clamp(2.7rem, 8.2vw, 6rem);
+    line-height: 1.02; letter-spacing: -.04em; margin: 0 0 24px;
+  }
+  h1 span { display: block; }
+  .lead { max-width: 33em; font-size: 1.2rem; color: var(--muted); margin: 0 0 30px; }
+  .lead, h1 { text-shadow: 0 0 14px var(--bg), 0 0 28px var(--bg); }
+  .actions { display: flex; flex-wrap: wrap; gap: 12px; }
   .btn {
-    display: inline-block; padding: 10px 18px; border-radius: 10px;
-    border: 1px solid var(--accent); font-weight: 600; font-size: 14px;
+    display: inline-block; text-decoration: none; font-weight: 500; font-size: 15px;
+    padding: 11px 22px; border-radius: 999px; border: 1px solid var(--line); color: var(--ink);
+    background: var(--panel);
   }
-  .btn.primary { background: var(--accent); color: #fff; }
-  :root[data-theme="dark"] .btn.primary { color: #0b1410; }
-  .btn:hover { text-decoration: none; opacity: .88; }
-  @media (min-width: 700px) {
-    .hero .wrap { grid-template-columns: 200px 1fr; gap: 40px; }
-    .photo { width: 200px; height: 200px; }
-  }
+  .btn:hover { border-color: var(--accent); color: var(--ink); }
+  .btn.solid { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+  .btn.solid:hover { color: var(--accent-ink); filter: brightness(1.08); }
+
+  .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px 24px; margin: 56px 0 0; padding: 22px 0 0; border-top: 1px solid var(--line); max-width: 760px; }
+  .stats div { text-shadow: 0 0 14px var(--bg), 0 0 24px var(--bg); }
+  .stats b { display: block; font-weight: 300; font-size: clamp(1.8rem, 4vw, 2.6rem); letter-spacing: -.03em; line-height: 1.1; }
+  .stats span { color: var(--muted); font-size: .9rem; display: block; line-height: 1.4; }
+  @media (max-width: 560px) { .stats span { font-size: .8rem; } }
 
   /* Sections */
-  section { padding: 36px 0; border-top: 1px solid var(--line); }
-  h2 { font-size: 20px; margin: 0 0 18px; letter-spacing: .02em; }
-  h2::before { content: ""; display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--accent); margin-right: 10px; vertical-align: middle; }
+  .section { padding: 88px 0 24px; }
+  .section h2 { font-weight: 300; font-size: clamp(1.9rem, 4.4vw, 2.8rem); letter-spacing: -.03em; line-height: 1.1; margin: 0 0 10px; }
+  .section h3.grp { font-weight: 500; font-size: 1.05rem; margin: 0 0 4px; color: var(--ink); }
+  .section .sub { color: var(--muted); margin: 0 0 36px; max-width: 36em; }
 
-  .card {
-    background: var(--surface); border: 1px solid var(--line);
-    border-radius: 12px; padding: 16px 18px; margin-bottom: 12px;
+  .panel {
+    background: var(--panel); border: 1px solid var(--line); border-radius: 18px; padding: 26px;
+    -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
   }
-  .card .top { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
-  .card h3 { font-size: 16px; margin: 0; }
-  .card .when { color: var(--muted); font-size: 13px; white-space: nowrap; }
-  .card .sub { color: var(--accent); font-size: 14px; font-style: italic; margin: 2px 0 0; }
-  .card p { margin: 8px 0 0; color: var(--muted); font-size: 14.5px; }
+  .pill {
+    display: inline-block; font-family: var(--mono); font-size: .78rem;
+    background: var(--pill-bg); color: var(--pill-ink);
+    border: 1px solid var(--line); border-radius: 999px; padding: 2px 10px;
+  }
+  .pill.gold { color: var(--amber); border-color: color-mix(in srgb, var(--amber) 40%, transparent); background: color-mix(in srgb, var(--amber) 10%, transparent); }
 
-  .grid { display: grid; gap: 12px; grid-template-columns: 1fr; }
-  @media (min-width: 640px) { .grid.two { grid-template-columns: 1fr 1fr; } }
-  .grid .card { margin: 0; }
+  /* Chips */
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 18px; }
+  .chip {
+    font-size: .88rem; color: var(--muted); background: var(--panel);
+    border: 1px solid var(--line); border-radius: 999px; padding: 5px 14px; cursor: pointer;
+  }
+  .chip:hover { color: var(--ink); border-color: var(--accent); }
+  .chip[aria-pressed="true"] { color: var(--accent-ink); background: var(--accent); border-color: var(--accent); }
 
-  .badge {
-    display: inline-block; font-size: 12px; font-weight: 600;
-    background: var(--accent-soft); color: var(--accent);
-    padding: 2px 10px; border-radius: 999px; margin-top: 8px;
+  /* Riset unggulan */
+  .feat { margin: 0 0 18px; }
+  .feat .head { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+  .feat h3 { font-weight: 500; font-size: clamp(1.4rem, 3vw, 1.8rem); line-height: 1.25; letter-spacing: -.02em; margin: 14px 0 4px; }
+  .feat .where { color: var(--muted); font-size: .92rem; margin: 0 0 14px; }
+  .feat .what { margin: 0; max-width: 40em; }
+  .media { margin: 0 0 18px; border-radius: 12px; overflow: hidden; border: 1px solid var(--line); }
+  .media img { display: block; width: 100%; max-height: 280px; object-fit: cover; }
+  .tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0 0; padding: 0; list-style: none; }
+  .tags li { font-size: .9rem; border: 1px solid var(--line); border-radius: 999px; padding: 3px 12px; color: var(--muted); }
+
+  .xp { margin-top: 24px; border-top: 1px solid var(--line); padding-top: 22px; display: grid; gap: 22px; grid-template-columns: 1fr; align-items: center; }
+  @media (min-width: 800px) { .xp { grid-template-columns: 1.15fr 1fr; gap: 36px; } }
+  .xp svg { width: 100%; height: auto; display: block; }
+  .xp .ctl { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 14px; }
+  .xp .text { margin: 0; min-height: 5.2em; }
+  .xp .note { color: var(--muted); font-size: .82rem; margin: 14px 0 0; }
+  .step {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: .92rem; color: var(--muted); background: var(--panel);
+    border: 1px solid var(--line); border-radius: 999px; padding: 6px 14px; cursor: pointer;
+  }
+  .step:hover { color: var(--ink); border-color: var(--accent); }
+  .step[aria-pressed="true"] { color: var(--ink); border-color: var(--accent); background: var(--pill-bg); }
+
+  /* Diagram SVG */
+  .xsvg .part { opacity: .3; transition: opacity .25s; }
+  .xsvg[data-active="all"] .part,
+  .xsvg[data-active="sensor"] .p-sensor, .xsvg[data-active="ai"] .p-ai, .xsvg[data-active="solar"] .p-solar,
+  .xsvg[data-active="coord"] .p-coord, .xsvg[data-active="data"] .p-data, .xsvg[data-active="veg"] .p-veg, .xsvg[data-active="area"] .p-area,
+  .xsvg[data-active="src"] .p-src, .xsvg[data-active="char"] .p-char, .xsvg[data-active="soil"] .p-soil { opacity: 1; }
+  .xsvg .stroke { fill: none; stroke: var(--ink); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  .xsvg .soft { fill: none; stroke: var(--accent); stroke-width: 1.6; stroke-dasharray: 4 5; stroke-linecap: round; }
+  .xsvg .soil { fill: color-mix(in srgb, var(--accent) 10%, transparent); stroke: var(--line); stroke-width: 1.5; }
+  .xsvg .leaf { fill: var(--leaf); }
+  .xsvg .cell { fill: color-mix(in srgb, var(--accent) 18%, transparent); stroke: var(--ink); stroke-width: 2; stroke-linejoin: round; }
+  .xsvg .sun { fill: var(--amber); }
+  .xsvg .ray { stroke: var(--amber); stroke-width: 2; stroke-linecap: round; }
+  .xsvg .dot { fill: var(--accent); }
+  .xsvg .pol { fill: var(--amber); }
+  .xsvg .fp { fill: color-mix(in srgb, var(--accent) 12%, transparent); stroke: var(--accent); stroke-width: 1.2; stroke-dasharray: 3 4; }
+  .xsvg .chr { fill: #0d1511; stroke: var(--ink); stroke-width: 1.6; stroke-linejoin: round; }
+  .xsvg .pore { fill: var(--ink); opacity: .55; }
+  .xsvg .lbl { fill: var(--muted); font-size: 10px; font-family: var(--sans); }
+
+  /* Riset lainnya */
+  .more { padding: 8px 26px; }
+  .more details { border-top: 1px solid var(--line); }
+  .more details:first-child { border-top: 0; }
+  .more summary { cursor: pointer; list-style: none; padding: 16px 0; display: grid; grid-template-columns: 56px 1fr auto; gap: 14px; align-items: baseline; }
+  .more summary::-webkit-details-marker { display: none; }
+  .more summary .yr { font-family: var(--mono); font-size: .85rem; color: var(--muted); }
+  .more summary b { font-weight: 500; line-height: 1.35; }
+  .more summary::after { content: "+"; font-family: var(--mono); color: var(--accent); grid-column: 3; grid-row: 1; justify-self: end; }
+  .more details[open] summary::after { content: "−"; }
+  .more .body { padding: 0 0 18px 70px; color: var(--muted); max-width: 44em; }
+  .more .body p { margin: 0 0 8px; }
+  .more .body .pill { display: inline-block; margin-top: 4px; }
+  @media (max-width: 640px) { .more summary { grid-template-columns: 44px 1fr 18px; gap: 10px; } .more .body { padding-left: 0; } }
+
+  /* Prestasi */
+  .table-panel { padding: 10px 8px; }
+  .table { width: 100%; border-collapse: collapse; }
+  .table th { font-weight: 500; color: var(--muted); text-align: left; font-size: .85rem; padding: 14px 18px 10px; }
+  .table td { padding: 16px 18px; border-top: 1px solid var(--line); vertical-align: top; }
+  .table td.yr { color: var(--muted); white-space: nowrap; width: 96px; font-family: var(--mono); font-size: .9rem; }
+  .table td.ev strong { display: block; font-weight: 500; }
+  .table td.ev span { color: var(--muted); font-size: .9rem; }
+  .table td.res { white-space: nowrap; }
+  @media (max-width: 640px) {
+    .table thead { display: none; }
+    .table, .table tbody, .table tr, .table td { display: block; width: 100%; }
+    .table tr { padding: 16px 12px; border-top: 1px solid var(--line); }
+    .table tr:first-child { border-top: 0; }
+    .table td { border: 0; padding: 0 0 6px; }
+    .table td.yr { width: auto; }
+    .table td.res { white-space: normal; }
   }
 
-  .stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-top: 18px; }
-  @media (min-width: 640px) { .stats { grid-template-columns: repeat(4, 1fr); } }
-  .stat { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 14px; text-align: center; }
-  .stat b { display: block; font-size: 26px; color: var(--accent); }
-  .stat span { font-size: 12.5px; color: var(--muted); }
+  /* Baris riwayat */
+  .rows { list-style: none; margin: 0; padding: 0; }
+  .rows li { display: grid; grid-template-columns: 190px 1fr; gap: 20px; padding: 22px 0; border-top: 1px solid var(--line); }
+  .rows li:first-child { border-top: 0; padding-top: 0; }
+  .rows li:last-child { padding-bottom: 0; }
+  @media (max-width: 640px) { .rows li { grid-template-columns: 1fr; gap: 4px; } }
+  .rows .when { color: var(--muted); font-family: var(--mono); font-size: .85rem; padding-top: 3px; }
+  .rows b { display: block; font-weight: 500; line-height: 1.35; }
+  .rows .role { color: var(--pill-ink); font-size: .95rem; display: block; margin-top: 2px; }
+  .rows p { margin: 8px 0 0; color: var(--muted); max-width: 38em; }
+  .grp-gap { height: 22px; }
 
-  dl.skills { margin: 0; display: grid; gap: 12px; }
-  dl.skills div { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 14px 18px; }
-  dl.skills dt { font-weight: 700; font-size: 14px; margin-bottom: 4px; }
-  dl.skills dd { margin: 0; color: var(--muted); font-size: 14.5px; }
+  /* Keahlian */
+  .skills { display: grid; gap: 16px; grid-template-columns: 1fr; }
+  @media (min-width: 780px) { .skills { grid-template-columns: 1fr 1fr; } }
+  .skills h3 { font-weight: 500; font-size: 1.05rem; margin: 0 0 8px; }
+  .skills p { margin: 0; color: var(--muted); }
 
-  footer { border-top: 1px solid var(--line); padding: 28px 0 40px; color: var(--muted); font-size: 13.5px; text-align: center; }
+  /* Galeri */
+  .gallery { display: grid; gap: 14px; grid-template-columns: 1fr 1fr; }
+  @media (min-width: 780px) { .gallery { grid-template-columns: repeat(3, 1fr); } }
+  .shot { margin: 0; border: 1px solid var(--line); border-radius: 14px; overflow: hidden; background: var(--panel); }
+  .shot img { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+  .shot figcaption { padding: 10px 14px 12px; font-size: .9rem; color: var(--muted); }
+
+  /* Kontak */
+  .contact .mail { display: inline-block; font-weight: 300; font-size: clamp(1.4rem, 4.6vw, 2.6rem); letter-spacing: -.03em; text-decoration: none; word-break: break-word; margin-bottom: 22px; }
+  .contact .mail:hover { color: var(--accent); }
+
+  footer { position: relative; overflow: hidden; margin-top: 72px; padding: 130px 0 44px; color: var(--muted); font-size: .88rem; border-top: 1px solid var(--line); }
+  footer .sea { -webkit-mask-image: linear-gradient(to top, #000 55%, transparent 100%); mask-image: linear-gradient(to top, #000 55%, transparent 100%); }
+  footer .wrap { position: relative; z-index: 1; }
+
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .xsvg .part { transition: none; } }
 </style>
 </head>
 <body>
 
-<header class="nav">
+<header class="bar">
   <div class="wrap">
-    <a class="brand" href="#top">Ulil Albab</a>
-    <ul>
-      <li><a href="#tentang">Tentang</a></li>
-      <li><a href="#prestasi">Prestasi</a></li>
-      <li><a href="#riset">Riset</a></li>
-      <li><a href="#organisasi">Organisasi</a></li>
-      <li><a href="#keahlian">Keahlian</a></li>
-      <li><a href="#kontak">Kontak</a></li>
-    </ul>
-    <button id="theme" aria-label="Ganti tema">◐</button>
+    <a class="brand" href="#atas"><code>&gt;&lt;&gt;</code> ulil albab</a>
+    <nav aria-label="Navigasi utama">
+      <ul>
+        <li><a href="#pendidikan">Pendidikan</a></li>
+        <li><a href="#prestasi">Prestasi</a></li>
+        <li><a href="#riset">Riset</a></li>
+        <li><a href="#organisasi">Organisasi</a></li>
+        <li><a href="#keahlian">Keahlian</a></li>
+        <li id="nav-galeri" hidden><a href="#galeri">Galeri</a></li>
+        <li><a href="#kontak">Kontak</a></li>
+      </ul>
+    </nav>
+    <button class="mode" id="mode" type="button">Mode terang</button>
   </div>
 </header>
 
-<main id="top">
+<main id="atas">
 
-  <div class="hero">
+  <section class="hero" aria-label="Perkenalan">
+    <canvas class="sea" id="sea" aria-hidden="true"></canvas>
     <div class="wrap">
-      <img class="photo" src="foto.jpg" alt="Foto Mukhammad Ulil Albab">
-      <div>
-        <h1>Mukhammad Ulil Albab</h1>
-        <p class="role">Mahasiswa Teknologi Pangan, IPB University</p>
-        <p class="lead">Peneliti muda yang aktif di lomba sains tingkat regional, nasional, dan internasional. Fokus pada pangan fungsional, nanoteknologi, biosensor, lingkungan, dan energi terbarukan.</p>
-        <div class="btns">
-          <a class="btn primary" href="#prestasi">Lihat Prestasi</a>
-          <a class="btn" href="#kontak">Hubungi Saya</a>
-        </div>
+      <span class="tag">Portofolio</span>
+      <h1><span>Mukhammad</span><span>Ulil Albab</span></h1>
+      <p class="lead">Saya Mahasiswa IPB University Departemen Teknologi Pangan yang sedang menjalani pendidikan PPKU.</p>
+      <div class="actions">
+        <a class="btn solid" href="#prestasi">Lihat prestasi</a>
+        <a class="btn" href="#riset">Lihat riset</a>
+        <a class="btn" href="#kontak">Hubungi saya</a>
       </div>
-    </div>
-  </div>
-
-  <section id="tentang">
-    <div class="wrap">
-      <h2>Tentang Saya</h2>
-      <p>Saya lahir di Kebumen, Jawa Tengah, dan besar di Jakarta. Saya diterima di Ilmu dan Teknologi Pangan IPB University melalui jalur Talent Scouting setelah meraih Juara 1 dan Golden Ticket di AgriTech Competition FTT IPB 2025. Selama SMA, saya berkembang menjadi peserta lomba riset sambil memimpin kelas, Pramuka, dan Kelompok Ilmiah Remaja (KIR).</p>
       <div class="stats">
-        <div class="stat"><b>10</b><span>Penghargaan lomba sains</span></div>
-        <div class="stat"><b>4</b><span>Tingkat internasional</span></div>
-        <div class="stat"><b>3</b><span>Tingkat nasional</span></div>
-        <div class="stat"><b>2026</b><span>Mulai kuliah di IPB</span></div>
+        <div><b>10</b><span>penghargaan lomba sains</span></div>
+        <div><b>13</b><span>proyek riset dan pengembangan</span></div>
+        <div><b>9</b><span>organisasi dan kepanitiaan</span></div>
       </div>
     </div>
   </section>
 
-  <section id="pendidikan">
+  <section class="section" id="pendidikan">
     <div class="wrap">
       <h2>Pendidikan</h2>
-      <div class="card">
-        <div class="top"><h3>IPB University, Bogor</h3><span class="when">2026 sampai estimasi 2030</span></div>
-        <p class="sub">Sarjana Teknologi Pangan</p>
-        <p>Diterima melalui jalur Talent Scouting setelah meraih Juara 1 dan Golden Ticket di AgriTech Competition FTT IPB 2025.</p>
-      </div>
-      <div class="card">
-        <div class="top"><h3>MAN 9 Jakarta Timur, Jakarta</h3><span class="when">2023 sampai 2026</span></div>
-        <p class="sub">Kelas Peminatan Teknik</p>
-        <p>Berkembang menjadi peserta lomba riset tingkat regional, nasional, dan internasional sambil memimpin kelas, Pramuka, dan Kelompok Ilmiah Remaja (KIR).</p>
+      <p class="sub">Dari kelas peminatan teknik di Jakarta sampai Teknologi Pangan di Bogor.</p>
+      <div class="panel">
+        <ol class="rows">
+          <li>
+            <span class="when">2026 sampai estimasi 2030</span>
+            <div>
+              <b>IPB University, Bogor</b>
+              <span class="role">Sarjana Teknologi Pangan</span>
+              <p>Diterima melalui jalur Talent Scouting setelah meraih Juara 1 dan Golden Ticket di AgriTech Competition FTT IPB 2025.</p>
+            </div>
+          </li>
+          <li>
+            <span class="when">2023 sampai 2026</span>
+            <div>
+              <b>MAN 9 Jakarta Timur, Jakarta</b>
+              <span class="role">Kelas Peminatan Teknik</span>
+              <p>Berkembang menjadi peserta lomba riset tingkat regional, nasional, dan internasional sambil memimpin kelas, Pramuka, dan Kelompok Ilmiah Remaja (KIR).</p>
+            </div>
+          </li>
+        </ol>
       </div>
     </div>
   </section>
 
-  <section id="prestasi">
+  <section class="section" id="prestasi">
     <div class="wrap">
       <h2>Prestasi</h2>
-      <div class="grid two">
-        <div class="card">
-          <div class="top"><h3>AgriTech Competition FTT IPB (AGRIET)</h3><span class="when">2025</span></div>
-          <p class="sub">Bogor</p>
-          <span class="badge">Nasional, Juara 1</span>
-        </div>
-        <div class="card">
-          <div class="top"><h3>TENNOVEX ITS</h3><span class="when">2025</span></div>
-          <p class="sub">Surabaya</p>
-          <span class="badge">Nasional, Juara 1</span>
-        </div>
-        <div class="card">
-          <div class="top"><h3>International Science and Invention Fair (ISIF)</h3><span class="when">2025</span></div>
-          <p class="sub">Bali</p>
-          <span class="badge">Internasional, Juara 1</span>
-        </div>
-        <div class="card">
-          <div class="top"><h3>Jakarta Madrasah Competition (JMC), Riset Saintek</h3><span class="when">2024</span></div>
-          <p class="sub">Jakarta</p>
-          <span class="badge">Provinsi, Juara 2</span>
-        </div>
-        <div class="card">
-          <div class="top"><h3>Indonesia International Applied Science Project Olympiad (I2ASPO)</h3><span class="when">2023</span></div>
-          <p class="sub">Surabaya</p>
-          <span class="badge">Internasional, Juara 2</span>
-        </div>
+      <p class="sub">Sepuluh penghargaan lomba sains. Pilih tingkatnya untuk menyaring daftar.</p>
+      <div class="chips" role="group" aria-label="Saring prestasi menurut tingkat">
+        <button class="chip" type="button" data-f="all" aria-pressed="true">Semua (10)</button>
+        <button class="chip" type="button" data-f="intl" aria-pressed="false">Internasional (4)</button>
+        <button class="chip" type="button" data-f="nas" aria-pressed="false">Nasional (3)</button>
+        <button class="chip" type="button" data-f="lokal" aria-pressed="false">Provinsi dan kabupaten (3)</button>
+      </div>
+      <div class="panel table-panel">
+        <table class="table" id="prestasi-table">
+          <thead>
+            <tr><th scope="col">Tahun</th><th scope="col">Lomba</th><th scope="col">Hasil</th></tr>
+          </thead>
+          <tbody>
+            <tr data-level="nas">
+              <td class="yr">2025</td>
+              <td class="ev"><strong>AgriTech Competition FTT IPB (AGRIET)</strong><span>Bogor</span></td>
+              <td class="res"><span class="pill gold">Juara 1, nasional</span></td>
+            </tr>
+            <tr data-level="nas">
+              <td class="yr">2025</td>
+              <td class="ev"><strong>TENNOVEX ITS</strong><span>Surabaya</span></td>
+              <td class="res"><span class="pill gold">Juara 1, nasional</span></td>
+            </tr>
+            <tr data-level="nas">
+              <td class="yr">2025</td>
+              <td class="ev"><strong>Olimpiade Sains Siswa Madrasah Nasional (OS2MN)</strong><span>Jakarta</span></td>
+              <td class="res"><span class="pill gold">Juara 1, nasional</span></td>
+            </tr>
+            <tr data-level="lokal">
+              <td class="yr">2025</td>
+              <td class="ev"><strong>Jakarta Madrasah Competition (JMC), bidang Geografi</strong><span>Jakarta</span></td>
+              <td class="res"><span class="pill gold">Juara 1, provinsi</span></td>
+            </tr>
+            <tr data-level="intl">
+              <td class="yr">2025</td>
+              <td class="ev"><strong>International Science and Invention Fair (ISIF)</strong><span>Bali</span></td>
+              <td class="res"><span class="pill gold">Juara 1, internasional</span></td>
+            </tr>
+            <tr data-level="intl">
+              <td class="yr">2024</td>
+              <td class="ev"><strong>Jakarta International Science Fair (JISF)</strong><span>Jakarta</span></td>
+              <td class="res"><span class="pill">Juara 2, internasional</span></td>
+            </tr>
+            <tr data-level="lokal">
+              <td class="yr">2024</td>
+              <td class="ev"><strong>Jakarta Madrasah Competition (JMC), bidang Riset Saintek</strong><span>Jakarta</span></td>
+              <td class="res"><span class="pill">Juara 2, provinsi</span></td>
+            </tr>
+            <tr data-level="intl">
+              <td class="yr">2023</td>
+              <td class="ev"><strong>Indonesia International Applied Science Project Olympiad (I2ASPO)</strong><span>Surabaya</span></td>
+              <td class="res"><span class="pill">Juara 2, internasional</span></td>
+            </tr>
+            <tr data-level="lokal">
+              <td class="yr">2023</td>
+              <td class="ev"><strong>Pioneering Stallion SMAN 5 Bekasi</strong><span>Bekasi</span></td>
+              <td class="res"><span class="pill">Juara Harapan 1, kabupaten</span></td>
+            </tr>
+            <tr data-level="intl">
+              <td class="yr">2023</td>
+              <td class="ev"><strong>Global Youth Invention and Innovation Fair (GYIIF)</strong><span>Bogor</span></td>
+              <td class="res"><span class="pill">Juara 2, internasional</span></td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
   </section>
 
-  <section id="riset">
+  <section class="section" id="riset">
     <div class="wrap">
-      <h2>Proyek Riset</h2>
-      <div class="card">
-        <div class="top"><h3>Si Manis Penambah Darah: Fe Gummy (Pengembangan Lanjutan)</h3><span class="when">2026</span></div>
-        <p class="sub">Riset Mandiri</p>
-        <p>Mengembangkan inovasi gummy fungsional berbasis daun kelor (<i>Moringa oleifera</i>) sebagai sumber zat besi dan kulit buah naga sebagai sumber betalain serta antioksidan untuk mendukung pencegahan anemia.</p>
-      </div>
-      <div class="card">
-        <div class="top"><h3>Smart Garden Berbasis IoT, AI, dan Energi Terbarukan</h3><span class="when">2025</span></div>
-        <p class="sub">AgriTech Competition FTT IPB (AGRIET), Juara 1 Nasional</p>
-        <p>Mengembangkan sistem pertanian cerdas berbasis IoT untuk pemantauan kondisi tanaman dan lingkungan secara real-time.</p>
-      </div>
-      <div class="card">
-        <div class="top"><h3>Inovasi BoosterASI</h3><span class="when">2024</span></div>
-        <p class="sub">International Science and Invention Fair (ISIF), Juara 1 Internasional</p>
-        <p>Mengembangkan produk herbal pendukung laktasi dari biji fenugreek, daun katuk, dan daun torbangun untuk ibu menyusui yang bekerja.</p>
-      </div>
-      <div class="card">
-        <div class="top"><h3>ZnO–SiO₂ untuk Degradasi Limbah</h3><span class="when">2024</span></div>
-        <p class="sub">Jakarta Madrasah Competition (JMC), Juara 2 Provinsi</p>
-        <p>Mensintesis komposit ZnO–SiO₂ untuk mendegradasi limbah timbal dan fenol organik serta fotoreduksi Pb(II).</p>
+      <h2>Riset</h2>
+      <p class="sub">Tiga proyek unggulan, lalu sepuluh proyek lainnya.</p>
+
+      <!-- Smart Garden -->
+      <article class="panel feat">
+        <div class="media"><img src="galeri/smart-garden.jpg" alt="Prototipe Smart Garden" loading="lazy" onerror="this.parentNode.remove()"></div>
+        <div class="head"><span class="pill gold">Juara 1 nasional</span><span class="pill">2025</span></div>
+        <h3>Smart Garden Berbasis IoT, AI, dan Energi Terbarukan</h3>
+        <p class="where">AgriTech Competition FTT IPB (AGRIET)</p>
+        <p class="what">Sistem pertanian cerdas berbasis Internet of Things. Pilih komponen di bawah untuk melihat perannya.</p>
+        <div class="xp" data-xp="garden">
+          <svg class="xsvg" data-active="all" viewBox="0 0 360 240" role="img" aria-label="Diagram konseptual smart garden: panel surya, kamera AI, dan sensor tanah">
+            <g class="part p-solar">
+              <circle class="sun" cx="318" cy="44" r="12"/>
+              <line class="ray" x1="318" y1="22" x2="318" y2="26"/><line class="ray" x1="318" y1="62" x2="318" y2="66"/>
+              <line class="ray" x1="296" y1="44" x2="300" y2="44"/><line class="ray" x1="336" y1="44" x2="340" y2="44"/>
+              <polygon class="cell" points="26,44 106,32 118,66 38,78"/>
+              <line class="stroke" x1="52" y1="40" x2="62" y2="74"/><line class="stroke" x1="79" y1="36" x2="90" y2="70"/>
+              <line class="stroke" x1="32" y1="61" x2="112" y2="49"/>
+              <line class="stroke" x1="72" y1="72" x2="72" y2="176"/>
+            </g>
+            <rect class="soil" x="14" y="176" width="332" height="42" rx="8"/>
+            <g class="part p-ai">
+              <line class="stroke" x1="182" y1="94" x2="182" y2="176"/>
+              <rect class="cell" x="162" y="68" width="40" height="26" rx="5"/>
+              <circle class="stroke" cx="182" cy="81" r="6"/>
+              <line class="soft" x1="172" y1="94" x2="126" y2="134"/>
+              <line class="soft" x1="192" y1="94" x2="232" y2="134"/>
+            </g>
+            <g class="part p-sensor">
+              <rect class="cell" x="140" y="160" width="12" height="9" rx="2"/><line class="stroke" x1="146" y1="169" x2="146" y2="204"/>
+              <rect class="cell" x="292" y="160" width="12" height="9" rx="2"/><line class="stroke" x1="298" y1="169" x2="298" y2="204"/>
+              <path class="soft" d="M138 154 q8 -8 16 0"/><path class="soft" d="M290 154 q8 -8 16 0"/>
+              <circle class="dot" cx="146" cy="200" r="3"/><circle class="dot" cx="298" cy="200" r="3"/>
+            </g>
+            <g>
+              <path class="stroke" d="M110 176 V140"/><ellipse class="leaf" cx="102" cy="142" rx="9" ry="5"/><ellipse class="leaf" cx="119" cy="136" rx="9" ry="5"/>
+              <path class="stroke" d="M232 176 V140"/><ellipse class="leaf" cx="224" cy="142" rx="9" ry="5"/><ellipse class="leaf" cx="241" cy="136" rx="9" ry="5"/>
+              <path class="stroke" d="M262 176 V148"/><ellipse class="leaf" cx="254" cy="150" rx="8" ry="4.5"/><ellipse class="leaf" cx="270" cy="145" rx="8" ry="4.5"/>
+              <path class="stroke" d="M330 176 V150"/><ellipse class="leaf" cx="322" cy="152" rx="8" ry="4.5"/>
+            </g>
+          </svg>
+          <div>
+            <div class="ctl" role="group" aria-label="Komponen smart garden">
+              <button class="step" type="button" data-part="sensor" aria-pressed="false">Sensor</button>
+              <button class="step" type="button" data-part="ai" aria-pressed="false">AI</button>
+              <button class="step" type="button" data-part="solar" aria-pressed="false">Panel surya</button>
+              <button class="step" type="button" data-part="all" aria-pressed="true">Satu sistem</button>
+            </div>
+            <p class="text" aria-live="polite"></p>
+            <p class="note">Visualisasi konseptual berdasarkan deskripsi proyek, bukan data aktual.</p>
+          </div>
+        </div>
+      </article>
+
+      <!-- Multi-Drone -->
+      <article class="panel feat">
+        <div class="media"><img src="galeri/multi-drone.jpg" alt="Ilustrasi Multi-Drone untuk agroforestri" loading="lazy" onerror="this.parentNode.remove()"></div>
+        <div class="head"><span class="pill">Sedang berjalan</span><span class="pill">2026</span><span class="pill">Pengembangan gagasan</span></div>
+        <h3>Multi-Drone untuk Agroforestri</h3>
+        <p class="where">Pemantauan dan pengelolaan kawasan pertanian serta kehutanan</p>
+        <p class="what">Gagasan memakai beberapa drone (multi-UAV) untuk mendukung pemantauan dan pengelolaan kawasan agroforestri. Pilih bagian di bawah untuk melihat perannya.</p>
+        <div class="xp" data-xp="drone">
+          <svg class="xsvg" data-active="all" viewBox="0 0 360 246" role="img" aria-label="Diagram konseptual tiga drone memantau lahan pertanian dan kawasan hutan">
+            <rect class="soil" x="10" y="200" width="340" height="28" rx="8"/>
+            <g class="part p-area">
+              <rect class="soft" x="16" y="148" width="138" height="76" rx="8"/>
+              <rect class="soft" x="164" y="118" width="186" height="106" rx="8"/>
+              <text class="lbl" x="24" y="240">Lahan pertanian</text>
+              <text class="lbl" x="172" y="240">Kawasan hutan</text>
+            </g>
+            <g class="part p-data">
+              <polygon class="fp" points="62,68 26,198 98,198"/>
+              <polygon class="fp" points="180,46 142,198 218,198"/>
+              <polygon class="fp" points="298,72 260,198 336,198"/>
+              <circle class="dot" cx="44" cy="195" r="2.6"/><circle class="dot" cx="62" cy="195" r="2.6"/><circle class="dot" cx="80" cy="195" r="2.6"/>
+              <circle class="dot" cx="158" cy="195" r="2.6"/><circle class="dot" cx="180" cy="195" r="2.6"/><circle class="dot" cx="202" cy="195" r="2.6"/>
+              <circle class="dot" cx="276" cy="195" r="2.6"/><circle class="dot" cx="298" cy="195" r="2.6"/><circle class="dot" cx="320" cy="195" r="2.6"/>
+            </g>
+            <g class="part p-veg">
+              <path class="stroke" d="M36 200V188"/><ellipse class="leaf" cx="36" cy="185" rx="6" ry="3.5"/>
+              <path class="stroke" d="M56 200V188"/><ellipse class="leaf" cx="56" cy="185" rx="6" ry="3.5"/>
+              <path class="stroke" d="M76 200V188"/><ellipse class="leaf" cx="76" cy="185" rx="6" ry="3.5"/>
+              <path class="stroke" d="M96 200V188"/><ellipse class="leaf" cx="96" cy="185" rx="6" ry="3.5"/>
+              <path class="stroke" d="M116 200V188"/><ellipse class="leaf" cx="116" cy="185" rx="6" ry="3.5"/>
+              <path class="stroke" d="M136 200V188"/><ellipse class="leaf" cx="136" cy="185" rx="6" ry="3.5"/>
+              <path class="stroke" d="M190 200V182"/><circle class="leaf" cx="190" cy="168" r="15"/>
+              <path class="stroke" d="M228 200V180"/><circle class="leaf" cx="228" cy="164" r="18"/>
+              <path class="stroke" d="M268 200V184"/><circle class="leaf" cx="268" cy="170" r="14"/>
+              <path class="stroke" d="M306 200V182"/><circle class="leaf" cx="306" cy="166" r="17"/>
+              <path class="stroke" d="M338 200V190"/><circle class="leaf" cx="338" cy="180" r="10"/>
+            </g>
+            <g class="part p-coord">
+              <path class="soft" d="M62 62 L180 40 L298 66"/>
+              <g transform="translate(62 62)"><rect class="cell" x="-11" y="-4" width="22" height="9" rx="3"/><line class="stroke" x1="-20" y1="-9" x2="-4" y2="-9"/><line class="stroke" x1="4" y1="-9" x2="20" y2="-9"/><line class="stroke" x1="-12" y1="-4" x2="-12" y2="-9"/><line class="stroke" x1="12" y1="-4" x2="12" y2="-9"/></g>
+              <g transform="translate(180 40)"><rect class="cell" x="-11" y="-4" width="22" height="9" rx="3"/><line class="stroke" x1="-20" y1="-9" x2="-4" y2="-9"/><line class="stroke" x1="4" y1="-9" x2="20" y2="-9"/><line class="stroke" x1="-12" y1="-4" x2="-12" y2="-9"/><line class="stroke" x1="12" y1="-4" x2="12" y2="-9"/></g>
+              <g transform="translate(298 66)"><rect class="cell" x="-11" y="-4" width="22" height="9" rx="3"/><line class="stroke" x1="-20" y1="-9" x2="-4" y2="-9"/><line class="stroke" x1="4" y1="-9" x2="20" y2="-9"/><line class="stroke" x1="-12" y1="-4" x2="-12" y2="-9"/><line class="stroke" x1="12" y1="-4" x2="12" y2="-9"/></g>
+            </g>
+          </svg>
+          <div>
+            <div class="ctl" role="group" aria-label="Bagian sistem multi-drone">
+              <button class="step" type="button" data-part="coord" aria-pressed="false">Koordinasi drone</button>
+              <button class="step" type="button" data-part="data" aria-pressed="false">Data spasial</button>
+              <button class="step" type="button" data-part="veg" aria-pressed="false">Vegetasi</button>
+              <button class="step" type="button" data-part="area" aria-pressed="false">Analisis kawasan</button>
+              <button class="step" type="button" data-part="all" aria-pressed="true">Satu sistem</button>
+            </div>
+            <p class="text" aria-live="polite"></p>
+            <p class="note">Visualisasi konseptual berdasarkan deskripsi proyek. Masih tahap pengembangan gagasan.</p>
+          </div>
+        </div>
+      </article>
+
+      <!-- Biochar -->
+      <article class="panel feat">
+        <div class="media"><img src="galeri/biochar.jpg" alt="Biochar" loading="lazy" onerror="this.parentNode.remove()"></div>
+        <div class="head"><span class="pill">Riset mandiri</span><span class="pill">2025</span></div>
+        <h3>Biochar untuk Remediasi Tanah</h3>
+        <p class="where">Material ramah lingkungan untuk pencemaran tanah</p>
+        <p class="what">Kajian biochar untuk mengurangi pencemaran tanah dari limbah industri dan rumah tangga. Pilih bagian di bawah untuk melihat alurnya.</p>
+        <div class="xp" data-xp="biochar">
+          <svg class="xsvg" data-active="all" viewBox="0 0 360 246" role="img" aria-label="Diagram konseptual biochar dalam tanah yang tercemar limbah industri dan rumah tangga">
+            <rect class="soil" x="14" y="120" width="332" height="108" rx="10"/>
+            <g class="part p-src">
+              <rect class="cell" x="30" y="52" width="56" height="34"/>
+              <rect class="cell" x="38" y="34" width="9" height="18"/><rect class="cell" x="58" y="40" width="9" height="12"/>
+              <circle class="soft" cx="44" cy="24" r="5"/><circle class="soft" cx="52" cy="14" r="4"/><circle class="soft" cx="64" cy="30" r="4"/>
+              <polygon class="cell" points="262,70 296,42 330,70"/><rect class="cell" x="270" y="70" width="52" height="28"/>
+              <circle class="pol" cx="44" cy="104" r="3"/><circle class="pol" cx="62" cy="110" r="3"/><circle class="pol" cx="300" cy="106" r="3"/><circle class="pol" cx="314" cy="114" r="3"/>
+              <circle class="pol" cx="36" cy="138" r="3"/><circle class="pol" cx="54" cy="150" r="3"/><circle class="pol" cx="76" cy="134" r="3"/><circle class="pol" cx="92" cy="160" r="3"/>
+              <circle class="pol" cx="44" cy="172" r="3"/><circle class="pol" cx="68" cy="184" r="3"/><circle class="pol" cx="30" cy="198" r="3"/><circle class="pol" cx="86" cy="208" r="3"/>
+              <circle class="pol" cx="276" cy="140" r="3"/><circle class="pol" cx="296" cy="154" r="3"/><circle class="pol" cx="318" cy="136" r="3"/><circle class="pol" cx="284" cy="176" r="3"/>
+              <circle class="pol" cx="310" cy="188" r="3"/><circle class="pol" cx="330" cy="164" r="3"/><circle class="pol" cx="300" cy="210" r="3"/><circle class="pol" cx="270" cy="200" r="3"/>
+            </g>
+            <g class="part p-char">
+              <polygon class="chr" points="130,152 142,140 160,144 168,158 158,174 138,172"/>
+              <polygon class="chr" points="178,172 190,160 208,164 214,178 202,192 184,190"/>
+              <polygon class="chr" points="220,146 232,134 250,140 254,156 242,168 224,164"/>
+              <polygon class="chr" points="158,204 168,194 184,198 188,210 176,220 162,216"/>
+              <polygon class="chr" points="110,194 120,186 134,190 136,202 126,210 112,206"/>
+              <circle class="pore" cx="146" cy="156" r="1.8"/><circle class="pore" cx="156" cy="163" r="1.8"/><circle class="pore" cx="140" cy="165" r="1.8"/>
+              <circle class="pore" cx="194" cy="174" r="1.8"/><circle class="pore" cx="204" cy="177" r="1.8"/><circle class="pore" cx="190" cy="184" r="1.8"/>
+              <circle class="pore" cx="234" cy="148" r="1.8"/><circle class="pore" cx="244" cy="154" r="1.8"/><circle class="pore" cx="228" cy="157" r="1.8"/>
+              <circle class="pore" cx="170" cy="204" r="1.8"/><circle class="pore" cx="180" cy="208" r="1.8"/>
+              <circle class="pore" cx="120" cy="196" r="1.8"/><circle class="pore" cx="128" cy="200" r="1.8"/>
+            </g>
+            <g class="part p-soil">
+              <rect class="soft" x="104" y="126" width="158" height="98" rx="10"/>
+              <path class="stroke" d="M190 120 V80"/>
+              <ellipse class="leaf" cx="178" cy="92" rx="10" ry="5.5"/><ellipse class="leaf" cx="203" cy="84" rx="10" ry="5.5"/><ellipse class="leaf" cx="180" cy="106" rx="8" ry="4.5"/>
+              <path class="soft" d="M190 122 C186 134 178 140 172 148"/><path class="soft" d="M190 122 C194 134 204 140 210 148"/>
+            </g>
+          </svg>
+          <div>
+            <div class="ctl" role="group" aria-label="Bagian alur biochar">
+              <button class="step" type="button" data-part="src" aria-pressed="false">Sumber pencemar</button>
+              <button class="step" type="button" data-part="char" aria-pressed="false">Biochar</button>
+              <button class="step" type="button" data-part="soil" aria-pressed="false">Tanah pulih</button>
+              <button class="step" type="button" data-part="all" aria-pressed="true">Satu alur</button>
+            </div>
+            <p class="text" aria-live="polite"></p>
+            <p class="note">Ilustrasi konsep berdasarkan deskripsi riset, bukan hasil pengujian.</p>
+          </div>
+        </div>
+      </article>
+
+      <h3 class="grp" style="margin-top:44px">Proyek lainnya</h3>
+      <p class="sub" style="margin-bottom:16px">Klik judul untuk membuka rinciannya.</p>
+      <div class="panel more">
+        <details>
+          <summary><span class="yr">2026</span><b>Si Manis Penambah Darah: Fe Gummy</b></summary>
+          <div class="body"><p>Gummy fungsional untuk mendukung pencegahan anemia, dengan daun kelor (<i>Moringa oleifera</i>) sebagai sumber zat besi serta kulit buah naga sebagai sumber betalain dan antioksidan. Formulasinya memakai pendekatan pemanfaatan limbah pangan, dengan evaluasi kadar zat besi, aktivitas antioksidan, karakteristik fisik, dan penerimaan konsumen.</p><span class="pill">Riset mandiri, pengembangan lanjutan</span></div>
+        </details>
+        <details>
+          <summary><span class="yr">2025</span><b>Smart Farming Microgrid</b></summary>
+          <div class="body"><p>Integrasi smart farming dengan sistem energi mikrogrid untuk mendukung operasional pertanian berbasis teknologi, menggabungkan energi terbarukan, otomasi pertanian, dan manajemen energi.</p><span class="pill">Riset mandiri, pengembangan lanjutan</span></div>
+        </details>
+        <details>
+          <summary><span class="yr">2024</span><b>Inovasi BoosterASI</b></summary>
+          <div class="body"><p>Produk herbal pendukung laktasi dari biji fenugreek, daun katuk, dan daun torbangun untuk ibu menyusui yang bekerja. Dirumuskan dari bahan alami dan bukti ilmiah, lalu dipresentasikan di forum internasional.</p><span class="pill gold">Juara 1 internasional, ISIF</span></div>
+        </details>
+        <details>
+          <summary><span class="yr">2024</span><b>Edukasi Bahaya Skincare Palsu dan Deteksi Dini</b></summary>
+          <div class="body"><p>Edukasi kesehatan masyarakat yang digabung dengan metode deteksi praktis untuk kosmetik palsu berbahaya, dengan sasaran remaja Jakarta.</p><span class="pill">Juara 2 internasional, JISF</span></div>
+        </details>
+        <details>
+          <summary><span class="yr">2024</span><b>ZnO–SiO₂ untuk Degradasi Limbah</b></summary>
+          <div class="body"><p>Sintesis komposit ZnO–SiO₂ untuk mendegradasi limbah timbal dan fenol organik serta fotoreduksi Pb(II).</p><span class="pill">Juara 2 provinsi, JMC bidang Riset Saintek</span></div>
+        </details>
+        <details>
+          <summary><span class="yr">2024</span><b>Briket Bioenergi dari Sekam Padi</b></summary>
+          <div class="body"><p>Pengolahan limbah sekam padi menjadi briket sebagai sumber energi terbarukan, dianalisis dari karakteristik pembakaran, nilai kalor, dan efisiensi energinya.</p><span class="pill">Juara 2 internasional, GYIIF</span></div>
+        </details>
+        <details>
+          <summary><span class="yr">2024</span><b>Solar Tracking System Berbasis Energi Surya</b></summary>
+          <div class="body"><p>Sistem panel surya dengan mekanisme solar tracking yang mengikuti arah matahari secara otomatis untuk mengoptimalkan orientasi panel dan efisiensi penyerapan energi.</p><span class="pill">Proyek riset dan pengembangan teknologi</span></div>
+        </details>
+        <details>
+          <summary><span class="yr">2024</span><b>Upcycling Limbah Kain menjadi Kerajinan</b></summary>
+          <div class="body"><p>Pemanfaatan kembali limbah kain menjadi produk kerajinan bernilai guna, sebagai penerapan ekonomi sirkular untuk mengurangi limbah tekstil.</p><span class="pill">Proyek inovasi lingkungan</span></div>
+        </details>
+        <details>
+          <summary><span class="yr">2023</span><b>Ekstrak Daun Pepaya dan Kemangi terhadap <i>E. coli</i></b></summary>
+          <div class="body"><p>Analisis zona hambat ekstrak <i>Carica papaya</i> dan <i>Ocimum basilicum</i> sebagai alternatif antimikroba alami.</p><span class="pill">Juara 2 internasional, I2ASPO</span></div>
+        </details>
+        <details>
+          <summary><span class="yr">2023</span><b>Eksplorasi Budaya dan Adat Papua</b></summary>
+          <div class="body"><p>Riset budaya dan adat Papua lewat observasi langsung di Taman Mini Indonesia Indah (TMII), dilanjutkan pameran edukatif di sekolah untuk memperkenalkan budaya, tradisi, dan kehidupan masyarakat Papua.</p><span class="pill">Riset lapangan dan pameran edukasi</span></div>
+        </details>
       </div>
     </div>
   </section>
 
-  <section id="organisasi">
+  <section class="section" id="organisasi">
     <div class="wrap">
-      <h2>Kepemimpinan dan Organisasi</h2>
-      <div class="card">
-        <div class="top"><h3>Komunitas Cryptozen, Indonesia</h3><span class="when">2024 sampai sekarang</span></div>
-        <p class="sub">Wakil Ketua</p>
-        <p>Memimpin pengelolaan komunitas online berskala nasional dengan 400 sampai 500 anggota dari berbagai daerah di Indonesia, serta mengoordinasikan interaksi dan menjaga keberlangsungan komunitas yang kini memiliki sekitar 350 anggota.</p>
-      </div>
-      <div class="card">
-        <div class="top"><h3>Kelas SE01, IPB University</h3><span class="when">2026 sampai sekarang</span></div>
-        <p class="sub">Sekretaris Kelas</p>
-        <p>Mengelola distribusi informasi akademik, termasuk pengingat deadline tugas dan jadwal perkuliahan, agar komunikasi kelas berjalan konsisten dan tepat waktu.</p>
-      </div>
-      <div class="card">
-        <div class="top"><h3>Pramuka Inti Ambalan Bimata Bakuh Aguna, MAN 9 Jakarta</h3><span class="when">2024 sampai 2025</span></div>
-        <p class="sub">Sekretaris 1 Ambalan</p>
-        <p>Mengelola administrasi pelantikan Bantara dan Laksana, mulai dari pengajuan dana, perizinan fasilitas, dan pendataan kehadiran hingga penyusunan LPJ serta dokumentasi kegiatan.</p>
-      </div>
-      <div class="card">
-        <div class="top"><h3>Kelompok Ilmiah Remaja (KIR), MAN 9 Jakarta</h3><span class="when">2024 sampai 2025</span></div>
-        <p class="sub">Sekretaris 1 Ekstrakurikuler</p>
-        <p>Mengelola administrasi dan kelengkapan berkas program kunjungan edukatif ke Taman Mini Indonesia Indah (TMII), meliputi pengajuan dana, perizinan sekolah, penyusunan LPJ, dokumentasi, serta koordinasi dengan pihak sekolah.</p>
-      </div>
-      <div class="card">
-        <div class="top"><h3>Pelantikan Bantara dan Laksana</h3><span class="when">2024 sampai 2025</span></div>
-        <p class="sub">Sekretaris Kepanitiaan</p>
-        <p>Mengelola administrasi dan korespondensi resmi pelantikan, meliputi pengajuan dana, perizinan fasilitas sekolah, pendataan kehadiran, penyusunan LPJ, serta koordinasi dengan pengurus ambalan.</p>
-      </div>
-      <div class="card">
-        <div class="top"><h3>Kunjungan Edukatif ke Taman Mini Indonesia Indah (TMII)</h3><span class="when">2024 sampai 2025</span></div>
-        <p class="sub">Sekretaris Kepanitiaan</p>
-        <p>Mengelola administrasi dan korespondensi program, mencakup pengajuan dana, perizinan sekolah, penyusunan dokumen kegiatan, serta negosiasi dan koordinasi dengan pihak sekolah.</p>
+      <h2>Organisasi</h2>
+      <p class="sub">Kepemimpinan dan kesekretariatan dari SMP sampai kuliah.</p>
+      <div class="panel">
+        <h3 class="grp">Kepemimpinan dan komunitas</h3>
+        <div class="grp-gap"></div>
+        <ol class="rows">
+          <li>
+            <span class="when">2024 sampai sekarang</span>
+            <div>
+              <b>Komunitas Cryptozen, Indonesia</b>
+              <span class="role">Wakil Ketua</span>
+              <p>Memimpin bersama ketua dalam mengelola komunitas online nasional yang pernah mencapai sekitar 400 sampai 500 anggota dari berbagai daerah. Mengoordinasikan komunikasi antaranggota dan menjaga komunitas tetap berjalan, kini sekitar 350 anggota.</p>
+            </div>
+          </li>
+          <li>
+            <span class="when">2021 sampai 2026</span>
+            <div>
+              <b>Kepemimpinan Kelas, SMP dan SMA</b>
+              <span class="role">Ketua Kelas (kelas 8, 11, 12) dan Wakil Ketua Kelas (kelas 9, 10)</span>
+              <p>Dipercaya memegang posisi kepemimpinan kelas lima tahun berturut-turut, menjadi penghubung antara siswa dan guru dalam penyampaian informasi dan pengambilan keputusan.</p>
+            </div>
+          </li>
+          <li>
+            <span class="when">2022 sampai 2023</span>
+            <div>
+              <b>Organisasi Siswa Intra Sekolah (OSIS), MTsN 44 Jakarta</b>
+              <span class="role">Anggota</span>
+              <p>Berpartisipasi dalam program kerja dan kegiatan kesiswaan, serta berkoordinasi dengan pengurus OSIS dalam persiapan dan pelaksanaan kegiatan sekolah.</p>
+            </div>
+          </li>
+        </ol>
+        <div class="grp-gap"></div>
+        <h3 class="grp" style="border-top:1px solid var(--line);padding-top:26px">Kesekretariatan dan administrasi</h3>
+        <div class="grp-gap"></div>
+        <ol class="rows">
+          <li>
+            <span class="when">2026 sampai sekarang</span>
+            <div>
+              <b>Kelas SE01, IPB University, Bogor</b>
+              <span class="role">Sekretaris Kelas</span>
+              <p>Menyampaikan informasi akademik lewat pengingat deadline tugas mingguan dan jadwal perkuliahan harian, agar seluruh anggota kelas mendapat informasi secara konsisten dan tepat waktu.</p>
+            </div>
+          </li>
+          <li>
+            <span class="when">2026 sampai sekarang</span>
+            <div>
+              <b>Lorong 8, Asrama C1, IPB University, Bogor</b>
+              <span class="role">Sekretaris Lorong</span>
+              <p>Berkoordinasi dengan penghuni untuk mendukung ketertiban administrasi dan lingkungan asrama.</p>
+            </div>
+          </li>
+          <li>
+            <span class="when">2024 sampai 2025</span>
+            <div>
+              <b>Pramuka Inti Ambalan Bimata Bakuh Aguna, MAN 9 Jakarta</b>
+              <span class="role">Sekretaris 1 Ambalan</span>
+              <p>Mengelola administrasi pelantikan Bantara dan Laksana, mencakup pengajuan dana, perizinan penggunaan fasilitas sekolah, dan pendataan kehadiran. Menyusun Laporan Pertanggungjawaban (LPJ) dan dokumentasi kegiatan.</p>
+            </div>
+          </li>
+          <li>
+            <span class="when">2024 sampai 2025</span>
+            <div>
+              <b>Pelantikan Bantara dan Laksana</b>
+              <span class="role">Sekretaris Kepanitiaan</span>
+              <p>Menjalankan seluruh administrasi pelantikan, dari surat pengajuan dana dan perizinan alat serta tempat sampai daftar hadir. Berkorespondensi resmi dengan pihak sekolah dan berkoordinasi dengan pengurus ambalan.</p>
+            </div>
+          </li>
+          <li>
+            <span class="when">2024 sampai 2025</span>
+            <div>
+              <b>Kelompok Ilmiah Remaja (KIR), MAN 9 Jakarta</b>
+              <span class="role">Sekretaris 1 Ekstrakurikuler</span>
+              <p>Mengelola administrasi pengajuan dana, perizinan sekolah, dan kebutuhan program kerja. Menjadi penghubung antara pengurus KIR dan pihak sekolah.</p>
+            </div>
+          </li>
+          <li>
+            <span class="when">2024 sampai 2025</span>
+            <div>
+              <b>Kunjungan Edukatif ke Taman Mini Indonesia Indah (TMII)</b>
+              <span class="role">Sekretaris Kepanitiaan</span>
+              <p>Mengelola pengajuan dana, perizinan sekolah, dan administrasi program, serta bernegosiasi dengan pihak sekolah agar kegiatan berjalan lancar dari ide sampai pelaksanaan.</p>
+            </div>
+          </li>
+        </ol>
       </div>
     </div>
   </section>
 
-  <section id="sertifikasi">
+  <section class="section" id="keahlian">
     <div class="wrap">
-      <h2>Sertifikasi</h2>
-      <div class="card">
-        <div class="top"><h3>Uji Kemahiran Bahasa Indonesia (UKBI)</h3><span class="when">Juli 2026</span></div>
-        <p class="sub">Total skor 609</p>
+      <h2>Keahlian</h2>
+      <p class="sub">Yang saya pakai sehari-hari untuk riset dan organisasi.</p>
+      <div class="skills">
+        <div class="panel">
+          <h3>Riset dan akademik</h3>
+          <p>Penulisan ilmiah, metodologi penelitian, perancangan dan pelaksanaan riset.</p>
+        </div>
+        <div class="panel">
+          <h3>Teknis dan digital</h3>
+          <p>Analisis data dengan R, Microsoft Excel, dan Microsoft Word. Dasar Python, pengembangan bot WhatsApp dan Telegram, serta produksi konten edukasi untuk TikTok, YouTube, dan Instagram.</p>
+        </div>
+        <div class="panel">
+          <h3>Organisasi dan administrasi</h3>
+          <p>Kepemimpinan, kesekretariatan (surat, pengajuan dana, perizinan, daftar hadir, LPJ), manajemen waktu dan jadwal, koordinasi tim, dan manajemen komunitas.</p>
+        </div>
+        <div class="panel">
+          <h3>Bahasa</h3>
+          <p>Indonesia (native), Inggris (dasar). Uji Kemahiran Bahasa Indonesia (UKBI) skor 609, Juli 2026.</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <section id="keahlian">
+  <section class="section" id="galeri" hidden>
     <div class="wrap">
-      <h2>Bahasa dan Keahlian</h2>
-      <dl class="skills">
-        <div><dt>Bahasa</dt><dd>Bahasa Indonesia (Native), English (Basic Proficiency)</dd></div>
-        <div><dt>Riset dan Akademik</dt><dd>Penulisan ilmiah, metodologi penelitian, perancangan dan pelaksanaan riset</dd></div>
-        <div><dt>Organisasi dan Administrasi</dt><dd>Kepemimpinan, kesekretariatan (surat, pengajuan dana, perizinan, daftar hadir, LPJ), manajemen waktu dan jadwal, koordinasi tim, manajemen komunitas</dd></div>
-        <div><dt>Teknis dan Digital</dt><dd>Analisis data dengan R, Microsoft Excel, dan Microsoft Word; dasar Python; pengembangan bot WhatsApp dan Telegram; produksi konten edukasi untuk TikTok, YouTube, dan Instagram</dd></div>
-      </dl>
+      <h2>Galeri</h2>
+      <p class="sub">Dokumentasi lomba, riset, dan kegiatan.</p>
+      <div class="gallery" id="gallery"></div>
     </div>
   </section>
 
-  <section id="kontak">
+  <section class="section" id="kontak">
     <div class="wrap">
       <h2>Kontak</h2>
-      <p>Terbuka untuk kolaborasi riset, lomba, dan peluang magang.</p>
-      <div class="btns">
-        <a class="btn primary" href="mailto:mahesvarawyne@gmail.com">Email</a>
-        <!-- GANTI link LinkedIn di bawah dengan URL profil lengkap lo -->
-        <a class="btn" href="https://linkedin.com/in/m" target="_blank" rel="noopener">LinkedIn</a>
+      <p class="sub">Paling cepat lewat WhatsApp atau email.</p>
+      <div class="panel contact">
+        <a class="mail" href="mailto:mahesvarawyne@gmail.com">mahesvarawyne@gmail.com</a>
+        <div class="actions">
+          <a class="btn solid" href="https://wa.me/6281289154212" target="_blank" rel="noopener">WhatsApp +62 812 8915 4212</a>
+          <a class="btn" href="https://instagram.com/ulilalbb6_" target="_blank" rel="noopener">Instagram @ulilalbb6_</a>
+          <a class="btn" href="mailto:mahesvarawyne@gmail.com">Kirim email</a>
+          <a class="btn" id="linkedin" href="#" target="_blank" rel="noopener" hidden>LinkedIn</a>
+        </div>
       </div>
     </div>
   </section>
@@ -315,25 +788,320 @@
 </main>
 
 <footer>
-  <div class="wrap">© <span id="yr">2026</span> Mukhammad Ulil Albab</div>
+  <canvas class="sea" id="sea-foot" aria-hidden="true"></canvas>
+  <div class="wrap">Mukhammad Ulil Albab, <span id="yr">2026</span></div>
 </footer>
 
 <script>
-  (function () {
-    var root = document.documentElement;
-    var saved = null;
-    try { saved = localStorage.getItem("theme"); } catch (e) {}
-    var prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
-    root.setAttribute("data-theme", saved || (prefersDark ? "dark" : "light"));
+(function () {
+  var root = document.documentElement;
 
-    document.getElementById("theme").addEventListener("click", function () {
-      var next = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
-      root.setAttribute("data-theme", next);
-      try { localStorage.setItem("theme", next); } catch (e) {}
+  /* ====== Pengaturan yang bisa kamu isi ====== */
+  // URL LinkedIn lengkap. Selama kosong, tombolnya tidak ditampilkan.
+  var LINKEDIN = "";
+  // Foto galeri: taruh di folder "galeri", lalu daftarkan di sini.
+  // Contoh: { src: "galeri/agriet-2025.jpg", cap: "Podium AGRIET 2025" }
+  var GALERI = [
+  ];
+  /* ========================================== */
+
+  /* Mode gelap atau terang */
+  var btn = document.getElementById("mode");
+  function label() { btn.textContent = root.getAttribute("data-theme") === "dark" ? "Mode terang" : "Mode gelap"; }
+  label();
+  btn.addEventListener("click", function () {
+    var next = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
+    root.setAttribute("data-theme", next);
+    try { localStorage.setItem("theme", next); } catch (e) {}
+    label();
+  });
+
+  document.getElementById("yr").textContent = new Date().getFullYear();
+
+  /* LinkedIn */
+  if (LINKEDIN) {
+    var li = document.getElementById("linkedin");
+    li.href = LINKEDIN; li.hidden = false;
+  }
+
+  /* Galeri tampil hanya kalau ada foto */
+  if (GALERI.length) {
+    var g = document.getElementById("gallery");
+    GALERI.forEach(function (it) {
+      var f = document.createElement("figure"); f.className = "shot";
+      var im = document.createElement("img"); im.src = it.src; im.alt = it.cap || ""; im.loading = "lazy";
+      f.appendChild(im);
+      if (it.cap) { var c = document.createElement("figcaption"); c.textContent = it.cap; f.appendChild(c); }
+      g.appendChild(f);
     });
+    document.getElementById("galeri").hidden = false;
+    document.getElementById("nav-galeri").hidden = false;
+  }
 
-    document.getElementById("yr").textContent = new Date().getFullYear();
-  })();
+  /* Saring prestasi */
+  var chips = document.querySelectorAll(".chip[data-f]");
+  var rowsP = document.querySelectorAll("#prestasi-table tbody tr");
+  Array.prototype.forEach.call(chips, function (ch) {
+    ch.addEventListener("click", function () {
+      var f = ch.getAttribute("data-f");
+      Array.prototype.forEach.call(chips, function (o) { o.setAttribute("aria-pressed", o === ch ? "true" : "false"); });
+      Array.prototype.forEach.call(rowsP, function (tr) { tr.hidden = !(f === "all" || tr.getAttribute("data-level") === f); });
+    });
+  });
+
+  /* Diagram interaktif */
+  var EXPL = {
+    garden: {
+      sensor: "Berbagai sensor memantau kondisi tanaman dan lingkungan secara real-time.",
+      ai: "Artificial Intelligence mendeteksi penyakit tanaman lewat analisis citra.",
+      solar: "Panel surya menjadi sumber energi terbarukan untuk menjalankan sistem.",
+      all: "Semua komponen terhubung lewat Internet of Things untuk pertanian yang otomatis, efisien, dan berkelanjutan."
+    },
+    drone: {
+      coord: "Beberapa drone (multi-UAV) dikoordinasikan agar bisa bekerja bersama di satu kawasan.",
+      data: "Tiap drone mengumpulkan data spasial dari area yang dilaluinya.",
+      veg: "Data dipakai untuk memantau kondisi vegetasi di kawasan.",
+      area: "Hasilnya dianalisis untuk menilai kondisi kawasan pertanian serta kehutanan.",
+      all: "Gagasan ini mengeksplorasi koordinasi beberapa drone untuk mendukung pemantauan dan pengelolaan kawasan agroforestri."
+    },
+    biochar: {
+      src: "Pencemaran tanah berasal dari limbah industri dan rumah tangga.",
+      char: "Biochar adalah arang berpori dari biomassa. Riset ini mengkajinya sebagai material ramah lingkungan untuk mengurangi pencemaran tanah.",
+      soil: "Tujuannya remediasi, yaitu memulihkan tanah yang tercemar.",
+      all: "Alurnya dari sumber pencemar, ke penggunaan biochar, sampai remediasi tanah."
+    }
+  };
+  Array.prototype.forEach.call(document.querySelectorAll(".xp[data-xp]"), function (box) {
+    var texts = EXPL[box.getAttribute("data-xp")];
+    var svg = box.querySelector("svg"), out = box.querySelector(".text");
+    var bs = box.querySelectorAll("[data-part]");
+    function set(k) {
+      svg.setAttribute("data-active", k);
+      out.textContent = texts[k];
+      Array.prototype.forEach.call(bs, function (b) { b.setAttribute("aria-pressed", b.getAttribute("data-part") === k ? "true" : "false"); });
+    }
+    Array.prototype.forEach.call(bs, function (b) { b.addEventListener("click", function () { set(b.getAttribute("data-part")); }); });
+    set("all");
+  });
+
+  /* Ikan koi ASCII, tampak atas */
+  /*FISH-START*/
+  function clamp(x, a, b) { return x < a ? a : (x > b ? b : x); }
+
+  // Setengah lebar badan di posisi s (0 hidung sampai 1 ujung ekor), dikali Wm.
+  function bodyHW(s, Wm) {
+    if (s >= 0.8) return Wm * 0.16;
+    var p = s / 0.8;
+    var hw = Wm * Math.pow(Math.sin(Math.PI * Math.pow(p, 0.6)), 0.7) * (1 - 0.5 * p);
+    return Math.max(hw, Wm * 0.16);
+  }
+  function spineY(f, s, t) {
+    return f.amp * f.L * (0.12 + 1.7 * s * s) * Math.sin(6.2 * s - f.w * t + f.ph) + f.bend * f.L * s * s;
+  }
+
+  // Menggambar satu koi. emit(x, y, kepadatan, terang). kepadatan < 0 artinya mata (hapus sel).
+  function koi(f, t, emit) {
+    var L = f.L, Wm = L * 0.082, N = Math.max(44, Math.round(L / 5.5)), step = f.step;
+    var P = [], i, s, u, k, sg;
+    var c = f.c, sn = f.s, dir = f.dir;
+    function put(lx, ly, d, pt) {
+      emit(f.cx + lx * dir * c - ly * sn, f.cy + lx * sn + ly * dir * c, d, pt);
+    }
+    for (i = 0; i <= N; i++) { s = i / N; P.push({ s: s, x: -s * L, y: spineY(f, s, t) }); }
+    for (i = 0; i <= N; i++) {
+      var a = P[Math.max(0, i - 1)], b = P[Math.min(N, i + 1)];
+      var tx = b.x - a.x, ty = b.y - a.y, ln = Math.sqrt(tx * tx + ty * ty) || 1;
+      P[i].tx = tx / ln; P[i].ty = ty / ln; P[i].nx = -ty / ln; P[i].ny = tx / ln;
+    }
+
+    /* Sirip dada dan perut */
+    function fin(si, side, len, wid, ang0, phase) {
+      var B = P[si], hwb = bodyHW(B.s, Wm);
+      var ax = B.x + B.nx * side * hwb * 0.85, ay = B.y + B.ny * side * hwb * 0.85;
+      var ang = ang0 + 0.2 * Math.sin(f.w * t * 0.7 + phase + side);
+      var dx = B.tx * Math.cos(ang) + B.nx * side * Math.sin(ang);
+      var dy = B.ty * Math.cos(ang) + B.ny * side * Math.sin(ang);
+      var M = Math.max(10, Math.round(len / 5)), q, uu, hwF, sway, cx0, cy0, dd;
+      for (k = 0; k <= M; k++) {
+        q = k / M;
+        sway = Math.sin(3.2 * q - f.w * t * 0.9 + phase) * 0.035 * L * q;
+        cx0 = ax + dx * q * len - dy * sway;
+        cy0 = ay + dy * q * len + dx * sway;
+        hwF = wid * Math.sin(Math.PI * Math.pow(q, 0.7)) * (1 - 0.2 * q) + 1.5;
+        for (uu = -hwF; uu <= hwF; uu += step) {
+          dd = 0.34 + 0.2 * (0.5 + 0.5 * Math.cos(uu * 0.55)) - 0.18 * q;
+          put(cx0 - dy * uu, cy0 + dx * uu, dd, 0);
+        }
+      }
+    }
+    for (sg = -1; sg <= 1; sg += 2) {
+      fin(Math.round(0.21 * N), sg, 0.2 * L, 0.05 * L, 0.62, 0.0);
+      fin(Math.round(0.5 * N), sg, 0.09 * L, 0.026 * L, 0.5, 1.7);
+    }
+
+    /* Badan dan ekor */
+    for (i = 0; i <= N; i++) {
+      var Q = P[i]; s = Q.s;
+      var tail = s > 0.78, q2 = tail ? (s - 0.78) / 0.22 : 0;
+      var hw = tail ? Wm * (0.16 + 1.5 * Math.pow(q2, 0.8)) : bodyHW(s, Wm);
+      var notch = (tail && q2 > 0.45) ? hw * 0.9 * (q2 - 0.45) / 0.55 : 0;
+      for (u = -hw; u <= hw; u += step) {
+        var au = Math.abs(u), r = au / hw, d, pt = 0;
+        if (au < notch) continue;
+        if (tail) {
+          d = (0.4 + 0.22 * (0.5 + 0.5 * Math.cos(u * 0.6))) * (1 - 0.45 * q2);
+        } else {
+          d = 0.55 + 0.45 * (1 - r * r);
+          if (s > 0.055 && s < 0.1 && r > 0.55 && r < 0.9) { put(Q.x + Q.nx * u, Q.y + Q.ny * u, -1, 0); continue; }
+          var ul = u / hw, w1 = 0.02 * Math.sin(ul * 6 + f.ph);
+          if (f.pat === 0) {
+            if ((s > 0.15 + w1 && s < 0.34 + w1 && au < hw * 0.92) || (s > 0.46 + w1 && s < 0.62 + w1 && ul > -0.35)) pt = 1;
+          } else if (f.pat === 1) {
+            if (s > 0.02 && s < 0.09 && au < hw * 0.65) pt = 1;
+          } else {
+            if ((s > 0.26 + w1 && s < 0.5 + w1 && ul < 0.45) || (s > 0.58 + w1 && s < 0.7 + w1 && au < hw * 0.8)) pt = 1;
+          }
+          if (pt) d = Math.max(d, 0.95); else d *= 0.78;
+        }
+        put(Q.x + Q.nx * u, Q.y + Q.ny * u, d, pt);
+      }
+    }
+  }
+  /*FISH-END*/
+
+  var CHARS = " .:;ltSXMUF%$";   // 13 tingkat, indeks 1 sampai 12 dipakai
+  var K = CHARS.length - 1;
+  var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var seas = [];
+
+  function createSea(canvas, host, fishes) {
+    var ctx = canvas.getContext("2d");
+    var W = 0, H = 0, cw = 12, ch = 12, cols = 0, rows = 0, grid, bright, eye, noise;
+    var atlas = [], goldTile = null;
+    var running = false, last = 0, rafId = 0, dpr = 1;
+
+    function sprite(tileRGB, tileA, chRGB, chA, chr) {
+      var cv = document.createElement("canvas");
+      cv.width = Math.round(cw * dpr); cv.height = Math.round(ch * dpr);
+      var x = cv.getContext("2d");
+      x.scale(dpr, dpr);
+      x.fillStyle = "rgba(" + tileRGB + "," + tileA.toFixed(3) + ")";
+      x.fillRect(0.6, 0.6, cw - 1.2, ch - 1.2);
+      x.fillStyle = "rgba(" + chRGB + "," + chA.toFixed(3) + ")";
+      x.font = "600 " + (ch - 3) + "px " + getComputedStyle(root).getPropertyValue("--mono");
+      x.textAlign = "center"; x.textBaseline = "middle";
+      x.fillText(chr, cw / 2, ch / 2 + 0.5);
+      return cv;
+    }
+    function buildAtlas() {
+      var cs = getComputedStyle(root);
+      var tile = cs.getPropertyValue("--fish").trim() || "110,215,165";
+      var chc = cs.getPropertyValue("--fish-ch").trim() || "205,245,225";
+      var gold = cs.getPropertyValue("--gold").trim() || "240,215,120";
+      var goldCh = cs.getPropertyValue("--gold-ch").trim() || "255,242,175";
+      atlas = [null]; goldTile = [];
+      for (var k = 1; k <= K; k++) {
+        var t = k / K;
+        atlas.push(sprite(tile, 0.03 + 0.36 * Math.pow(t, 1.4), chc, 0.2 + 0.76 * t, CHARS.charAt(k)));
+        goldTile.push(k >= 9 ? sprite(gold, 0.34, goldCh, 0.96, CHARS.charAt(k)) : null);
+      }
+    }
+
+    function resize() {
+      dpr = Math.min(window.devicePixelRatio || 1, 2);
+      W = host.clientWidth; H = host.clientHeight;
+      canvas.width = Math.round(W * dpr); canvas.height = Math.round(H * dpr);
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      if (W < 600) { cw = 9; ch = 9; } else { cw = 12; ch = 12; }
+      cols = Math.ceil(W / cw); rows = Math.ceil(H / ch);
+      grid = new Float32Array(cols * rows);
+      bright = new Uint8Array(cols * rows);
+      eye = new Uint8Array(cols * rows);
+      noise = new Float32Array(cols * rows);
+      for (var r = 0; r < rows; r++) for (var c = 0; c < cols; c++) {
+        var n = (Math.imul(c + 1, 73856093) ^ Math.imul(r + 1, 19349663)) >>> 0;
+        noise[r * cols + c] = (n % 1000) / 1000;
+      }
+      var base = Math.max(W, 620);
+      for (var i = 0; i < fishes.length; i++) {
+        var f = fishes[i];
+        f.L = f.rel * base; f.speed = f.spd * base; f.amp = 0.06; f.w = 1.6 + f.spd * 9; f.step = cw * 0.5;
+      }
+      buildAtlas();
+    }
+
+    function emit(wx, wy, d, pt) {
+      var c = (wx / cw) | 0, r = (wy / ch) | 0;
+      if (wx < 0 || wy < 0 || c >= cols || r >= rows) return;
+      var idx = r * cols + c;
+      if (d < 0) { eye[idx] = 1; return; }
+      if (d > grid[idx]) { grid[idx] = d; bright[idx] = pt; }
+    }
+
+    function render(t) {
+      ctx.clearRect(0, 0, W, H);
+      var i, f, r, c, idx;
+      for (i = 0; i < fishes.length; i++) {
+        f = fishes[i];
+        var span = W + f.L * 2.2;
+        f.cx = ((f.x0 * span + f.dir * f.speed * t) % span + span) % span - f.L * 1.1;
+        f.cy = f.y0 * H + H * 0.04 * Math.sin(f.wy * t + f.py);
+        var vy = H * 0.04 * f.wy * Math.cos(f.wy * t + f.py);
+        var th = Math.atan2(vy, f.speed);
+        f.c = Math.cos(th); f.s = Math.sin(th);
+        koi(f, t, emit);
+      }
+      for (r = 0; r < rows; r++) {
+        for (c = 0; c < cols; c++) {
+          idx = r * cols + c;
+          var g = grid[idx];
+          if (g > 0) {
+            var noEye = eye[idx];
+            grid[idx] = 0; bright[idx] = 0; eye[idx] = 0;
+            if (noEye || g < 0.1) continue;
+            var n = noise[idx];
+            var k = clamp(Math.round(g * K + (n - 0.5) * 2.4), 1, K);
+            var spr = (k >= 9 && n > 0.994) ? goldTile[k - 1] : atlas[k];
+            ctx.drawImage(spr, c * cw, r * ch, cw, ch);
+          } else if (eye[idx]) { eye[idx] = 0; }
+        }
+      }
+    }
+
+    function loop(now) {
+      if (!running) return;
+      if (now - last >= 33) { last = now; render(now / 1000); }
+      rafId = requestAnimationFrame(loop);
+    }
+    function start() { if (running || reduce) return; running = true; rafId = requestAnimationFrame(loop); }
+    function stop() { running = false; cancelAnimationFrame(rafId); }
+
+    resize();
+    if (reduce) render(2.5); else start();
+
+    if (window.ResizeObserver) {
+      new ResizeObserver(function () { resize(); if (reduce) render(2.5); }).observe(host);
+    } else {
+      window.addEventListener("resize", function () { resize(); if (reduce) render(2.5); });
+    }
+    if (window.IntersectionObserver) {
+      new IntersectionObserver(function (es) { es[0].isIntersecting ? start() : stop(); }).observe(host);
+    }
+    seas.push(function () { buildAtlas(); if (reduce) render(2.5); });
+  }
+
+  createSea(document.getElementById("sea"), document.getElementById("sea").parentElement, [
+    { rel: 0.46, y0: 0.24, dir:  1, spd: 0.030, x0: 0.22, ph: 0.0, py: 0.0, wy: 0.35, bend:  0.16, pat: 0 },
+    { rel: 0.40, y0: 0.78, dir: -1, spd: 0.024, x0: 0.72, ph: 1.7, py: 1.3, wy: 0.30, bend: -0.14, pat: 2 },
+    { rel: 0.26, y0: 0.52, dir:  1, spd: 0.036, x0: 0.92, ph: 0.9, py: 4.0, wy: 0.42, bend: -0.08, pat: 1 }
+  ]);
+  createSea(document.getElementById("sea-foot"), document.getElementById("sea-foot").parentElement, [
+    { rel: 0.30, y0: 0.5, dir: -1, spd: 0.024, x0: 0.55, ph: 2.2, py: 0.7, wy: 0.30, bend: 0.10, pat: 0 }
+  ]);
+
+  new MutationObserver(function () { seas.forEach(function (fn) { fn(); }); })
+    .observe(root, { attributes: true, attributeFilter: ["data-theme"] });
+})();
 </script>
 </body>
 </html>
