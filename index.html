@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mukhammad Ulil Albab | Portofolio</title>
+<meta name="description" content="Portofolio Mukhammad Ulil Albab, mahasiswa Teknologi Pangan IPB University, peneliti dan juara lomba sains tingkat nasional dan internasional.">
+<meta property="og:title" content="Mukhammad Ulil Albab | Portofolio">
+<meta property="og:description" content="Mahasiswa Teknologi Pangan IPB University. Peneliti dan juara lomba sains tingkat nasional dan internasional.">
+<meta property="og:type" content="website">
+<style>
+  :root {
+    --bg: #fafaf7;
+    --surface: #ffffff;
+    --text: #1c1f1d;
+    --muted: #5d6661;
+    --line: #e3e6e1;
+    --accent: #1f7a4d;
+    --accent-soft: #e4f3ea;
+  }
+  :root[data-theme="dark"] {
+    --bg: #101412;
+    --surface: #171c19;
+    --text: #e9eeeb;
+    --muted: #9aa5a0;
+    --line: #26302b;
+    --accent: #4fd08a;
+    --accent-soft: #17291f;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    line-height: 1.65;
+  }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .wrap { max-width: 860px; margin: 0 auto; padding: 0 20px; }
+
+  /* Nav */
+  header.nav {
+    position: sticky; top: 0; z-index: 10;
+    background: color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 56px; gap: 12px; }
+  .nav .brand { font-weight: 700; color: var(--text); }
+  .nav ul { list-style: none; display: flex; gap: 18px; margin: 0; padding: 0; font-size: 14px; overflow-x: auto; }
+  .nav ul a { color: var(--muted); white-space: nowrap; }
+  .nav ul a:hover { color: var(--accent); text-decoration: none; }
+  #theme {
+    border: 1px solid var(--line); background: var(--surface); color: var(--text);
+    border-radius: 999px; width: 36px; height: 36px; cursor: pointer; font-size: 16px; flex-shrink: 0;
+  }
+
+  /* Hero */
+  .hero { padding: 56px 0 40px; }
+  .hero .wrap { display: grid; grid-template-columns: 1fr; gap: 28px; align-items: center; }
+  .photo {
+    width: 160px; height: 160px; border-radius: 50%;
+    object-fit: cover; object-position: center 20%;
+    border: 3px solid var(--accent); background: var(--accent-soft);
+  }
+  .hero h1 { font-size: clamp(28px, 6vw, 42px); line-height: 1.15; margin: 0 0 8px; }
+  .hero .role { color: var(--accent); font-weight: 600; margin: 0 0 14px; }
+  .hero p.lead { color: var(--muted); margin: 0 0 22px; max-width: 560px; }
+  .btns { display: flex; flex-wrap: wrap; gap: 10px; }
+  .btn {
+    display: inline-block; padding: 10px 18px; border-radius: 10px;
+    border: 1px solid var(--accent); font-weight: 600; font-size: 14px;
+  }
+  .btn.primary { background: var(--accent); color: #fff; }
+  :root[data-theme="dark"] .btn.primary { color: #0b1410; }
+  .btn:hover { text-decoration: none; opacity: .88; }
+  @media (min-width: 700px) {
+    .hero .wrap { grid-template-columns: 200px 1fr; gap: 40px; }
+    .photo { width: 200px; height: 200px; }
+  }
+
+  /* Sections */
+  section { padding: 36px 0; border-top: 1px solid var(--line); }
+  h2 { font-size: 20px; margin: 0 0 18px; letter-spacing: .02em; }
+  h2::before { content: ""; display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--accent); margin-right: 10px; vertical-align: middle; }
+
+  .card {
+    background: var(--surface); border: 1px solid var(--line);
+    border-radius: 12px; padding: 16px 18px; margin-bottom: 12px;
+  }
+  .card .top { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+  .card h3 { font-size: 16px; margin: 0; }
+  .card .when { color: var(--muted); font-size: 13px; white-space: nowrap; }
+  .card .sub { color: var(--accent); font-size: 14px; font-style: italic; margin: 2px 0 0; }
+  .card p { margin: 8px 0 0; color: var(--muted); font-size: 14.5px; }
+
+  .grid { display: grid; gap: 12px; grid-template-columns: 1fr; }
+  @media (min-width: 640px) { .grid.two { grid-template-columns: 1fr 1fr; } }
+  .grid .card { margin: 0; }
+
+  .badge {
+    display: inline-block; font-size: 12px; font-weight: 600;
+    background: var(--accent-soft); color: var(--accent);
+    padding: 2px 10px; border-radius: 999px; margin-top: 8px;
+  }
+
+  .stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-top: 18px; }
+  @media (min-width: 640px) { .stats { grid-template-columns: repeat(4, 1fr); } }
+  .stat { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 14px; text-align: center; }
+  .stat b { display: block; font-size: 26px; color: var(--accent); }
+  .stat span { font-size: 12.5px; color: var(--muted); }
+
+  dl.skills { margin: 0; display: grid; gap: 12px; }
+  dl.skills div { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 14px 18px; }
+  dl.skills dt { font-weight: 700; font-size: 14px; margin-bottom: 4px; }
+  dl.skills dd { margin: 0; color: var(--muted); font-size: 14.5px; }
+
+  footer { border-top: 1px solid var(--line); padding: 28px 0 40px; color: var(--muted); font-size: 13.5px; text-align: center; }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#top">Ulil Albab</a>
+    <ul>
+      <li><a href="#tentang">Tentang</a></li>
+      <li><a href="#prestasi">Prestasi</a></li>
+      <li><a href="#riset">Riset</a></li>
+      <li><a href="#organisasi">Organisasi</a></li>
+      <li><a href="#keahlian">Keahlian</a></li>
+      <li><a href="#kontak">Kontak</a></li>
+    </ul>
+    <button id="theme" aria-label="Ganti tema">◐</button>
+  </div>
+</header>
+
+<main id="top">
+
+  <div class="hero">
+    <div class="wrap">
+      <img class="photo" src="foto.jpg" alt="Foto Mukhammad Ulil Albab">
+      <div>
+        <h1>Mukhammad Ulil Albab</h1>
+        <p class="role">Mahasiswa Teknologi Pangan, IPB University</p>
+        <p class="lead">Peneliti muda yang aktif di lomba sains tingkat regional, nasional, dan internasional. Fokus pada pangan fungsional, nanoteknologi, biosensor, lingkungan, dan energi terbarukan.</p>
+        <div class="btns">
+          <a class="btn primary" href="#prestasi">Lihat Prestasi</a>
+          <a class="btn" href="#kontak">Hubungi Saya</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section id="tentang">
+    <div class="wrap">
+      <h2>Tentang Saya</h2>
+      <p>Saya lahir di Kebumen, Jawa Tengah, dan besar di Jakarta. Saya diterima di Ilmu dan Teknologi Pangan IPB University melalui jalur Talent Scouting setelah meraih Juara 1 dan Golden Ticket di AgriTech Competition FTT IPB 2025. Selama SMA, saya berkembang menjadi peserta lomba riset sambil memimpin kelas, Pramuka, dan Kelompok Ilmiah Remaja (KIR).</p>
+      <div class="stats">
+        <div class="stat"><b>10</b><span>Penghargaan lomba sains</span></div>
+        <div class="stat"><b>4</b><span>Tingkat internasional</span></div>
+        <div class="stat"><b>3</b><span>Tingkat nasional</span></div>
+        <div class="stat"><b>2026</b><span>Mulai kuliah di IPB</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="pendidikan">
+    <div class="wrap">
+      <h2>Pendidikan</h2>
+      <div class="card">
+        <div class="top"><h3>IPB University, Bogor</h3><span class="when">2026 sampai estimasi 2030</span></div>
+        <p class="sub">Sarjana Teknologi Pangan</p>
+        <p>Diterima melalui jalur Talent Scouting setelah meraih Juara 1 dan Golden Ticket di AgriTech Competition FTT IPB 2025.</p>
+      </div>
+      <div class="card">
+        <div class="top"><h3>MAN 9 Jakarta Timur, Jakarta</h3><span class="when">2023 sampai 2026</span></div>
+        <p class="sub">Kelas Peminatan Teknik</p>
+        <p>Berkembang menjadi peserta lomba riset tingkat regional, nasional, dan internasional sambil memimpin kelas, Pramuka, dan Kelompok Ilmiah Remaja (KIR).</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="prestasi">
+    <div class="wrap">
+      <h2>Prestasi</h2>
+      <div class="grid two">
+        <div class="card">
+          <div class="top"><h3>AgriTech Competition FTT IPB (AGRIET)</h3><span class="when">2025</span></div>
+          <p class="sub">Bogor</p>
+          <span class="badge">Nasional, Juara 1</span>
+        </div>
+        <div class="card">
+          <div class="top"><h3>TENNOVEX ITS</h3><span class="when">2025</span></div>
+          <p class="sub">Surabaya</p>
+          <span class="badge">Nasional, Juara 1</span>
+        </div>
+        <div class="card">
+          <div class="top"><h3>International Science and Invention Fair (ISIF)</h3><span class="when">2025</span></div>
+          <p class="sub">Bali</p>
+          <span class="badge">Internasional, Juara 1</span>
+        </div>
+        <div class="card">
+          <div class="top"><h3>Jakarta Madrasah Competition (JMC), Riset Saintek</h3><span class="when">2024</span></div>
+          <p class="sub">Jakarta</p>
+          <span class="badge">Provinsi, Juara 2</span>
+        </div>
+        <div class="card">
+          <div class="top"><h3>Indonesia International Applied Science Project Olympiad (I2ASPO)</h3><span class="when">2023</span></div>
+          <p class="sub">Surabaya</p>
+          <span class="badge">Internasional, Juara 2</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="riset">
+    <div class="wrap">
+      <h2>Proyek Riset</h2>
+      <div class="card">
+        <div class="top"><h3>Si Manis Penambah Darah: Fe Gummy (Pengembangan Lanjutan)</h3><span class="when">2026</span></div>
+        <p class="sub">Riset Mandiri</p>
+        <p>Mengembangkan inovasi gummy fungsional berbasis daun kelor (<i>Moringa oleifera</i>) sebagai sumber zat besi dan kulit buah naga sebagai sumber betalain serta antioksidan untuk mendukung pencegahan anemia.</p>
+      </div>
+      <div class="card">
+        <div class="top"><h3>Smart Garden Berbasis IoT, AI, dan Energi Terbarukan</h3><span class="when">2025</span></div>
+        <p class="sub">AgriTech Competition FTT IPB (AGRIET), Juara 1 Nasional</p>
+        <p>Mengembangkan sistem pertanian cerdas berbasis IoT untuk pemantauan kondisi tanaman dan lingkungan secara real-time.</p>
+      </div>
+      <div class="card">
+        <div class="top"><h3>Inovasi BoosterASI</h3><span class="when">2024</span></div>
+        <p class="sub">International Science and Invention Fair (ISIF), Juara 1 Internasional</p>
+        <p>Mengembangkan produk herbal pendukung laktasi dari biji fenugreek, daun katuk, dan daun torbangun untuk ibu menyusui yang bekerja.</p>
+      </div>
+      <div class="card">
+        <div class="top"><h3>ZnO–SiO₂ untuk Degradasi Limbah</h3><span class="when">2024</span></div>
+        <p class="sub">Jakarta Madrasah Competition (JMC), Juara 2 Provinsi</p>
+        <p>Mensintesis komposit ZnO–SiO₂ untuk mendegradasi limbah timbal dan fenol organik serta fotoreduksi Pb(II).</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="organisasi">
+    <div class="wrap">
+      <h2>Kepemimpinan dan Organisasi</h2>
+      <div class="card">
+        <div class="top"><h3>Komunitas Cryptozen, Indonesia</h3><span class="when">2024 sampai sekarang</span></div>
+        <p class="sub">Wakil Ketua</p>
+        <p>Memimpin pengelolaan komunitas online berskala nasional dengan 400 sampai 500 anggota dari berbagai daerah di Indonesia, serta mengoordinasikan interaksi dan menjaga keberlangsungan komunitas yang kini memiliki sekitar 350 anggota.</p>
+      </div>
+      <div class="card">
+        <div class="top"><h3>Kelas SE01, IPB University</h3><span class="when">2026 sampai sekarang</span></div>
+        <p class="sub">Sekretaris Kelas</p>
+        <p>Mengelola distribusi informasi akademik, termasuk pengingat deadline tugas dan jadwal perkuliahan, agar komunikasi kelas berjalan konsisten dan tepat waktu.</p>
+      </div>
+      <div class="card">
+        <div class="top"><h3>Pramuka Inti Ambalan Bimata Bakuh Aguna, MAN 9 Jakarta</h3><span class="when">2024 sampai 2025</span></div>
+        <p class="sub">Sekretaris 1 Ambalan</p>
+        <p>Mengelola administrasi pelantikan Bantara dan Laksana, mulai dari pengajuan dana, perizinan fasilitas, dan pendataan kehadiran hingga penyusunan LPJ serta dokumentasi kegiatan.</p>
+      </div>
+      <div class="card">
+        <div class="top"><h3>Kelompok Ilmiah Remaja (KIR), MAN 9 Jakarta</h3><span class="when">2024 sampai 2025</span></div>
+        <p class="sub">Sekretaris 1 Ekstrakurikuler</p>
+        <p>Mengelola administrasi dan kelengkapan berkas program kunjungan edukatif ke Taman Mini Indonesia Indah (TMII), meliputi pengajuan dana, perizinan sekolah, penyusunan LPJ, dokumentasi, serta koordinasi dengan pihak sekolah.</p>
+      </div>
+      <div class="card">
+        <div class="top"><h3>Pelantikan Bantara dan Laksana</h3><span class="when">2024 sampai 2025</span></div>
+        <p class="sub">Sekretaris Kepanitiaan</p>
+        <p>Mengelola administrasi dan korespondensi resmi pelantikan, meliputi pengajuan dana, perizinan fasilitas sekolah, pendataan kehadiran, penyusunan LPJ, serta koordinasi dengan pengurus ambalan.</p>
+      </div>
+      <div class="card">
+        <div class="top"><h3>Kunjungan Edukatif ke Taman Mini Indonesia Indah (TMII)</h3><span class="when">2024 sampai 2025</span></div>
+        <p class="sub">Sekretaris Kepanitiaan</p>
+        <p>Mengelola administrasi dan korespondensi program, mencakup pengajuan dana, perizinan sekolah, penyusunan dokumen kegiatan, serta negosiasi dan koordinasi dengan pihak sekolah.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="sertifikasi">
+    <div class="wrap">
+      <h2>Sertifikasi</h2>
+      <div class="card">
+        <div class="top"><h3>Uji Kemahiran Bahasa Indonesia (UKBI)</h3><span class="when">Juli 2026</span></div>
+        <p class="sub">Total skor 609</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="keahlian">
+    <div class="wrap">
+      <h2>Bahasa dan Keahlian</h2>
+      <dl class="skills">
+        <div><dt>Bahasa</dt><dd>Bahasa Indonesia (Native), English (Basic Proficiency)</dd></div>
+        <div><dt>Riset dan Akademik</dt><dd>Penulisan ilmiah, metodologi penelitian, perancangan dan pelaksanaan riset</dd></div>
+        <div><dt>Organisasi dan Administrasi</dt><dd>Kepemimpinan, kesekretariatan (surat, pengajuan dana, perizinan, daftar hadir, LPJ), manajemen waktu dan jadwal, koordinasi tim, manajemen komunitas</dd></div>
+        <div><dt>Teknis dan Digital</dt><dd>Analisis data dengan R, Microsoft Excel, dan Microsoft Word; dasar Python; pengembangan bot WhatsApp dan Telegram; produksi konten edukasi untuk TikTok, YouTube, dan Instagram</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section id="kontak">
+    <div class="wrap">
+      <h2>Kontak</h2>
+      <p>Terbuka untuk kolaborasi riset, lomba, dan peluang magang.</p>
+      <div class="btns">
+        <a class="btn primary" href="mailto:mahesvarawyne@gmail.com">Email</a>
+        <!-- GANTI link LinkedIn di bawah dengan URL profil lengkap lo -->
+        <a class="btn" href="https://linkedin.com/in/m" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">© <span id="yr">2026</span> Mukhammad Ulil Albab</div>
+</footer>
+
+<script>
+  (function () {
+    var root = document.documentElement;
+    var saved = null;
+    try { saved = localStorage.getItem("theme"); } catch (e) {}
+    var prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+    root.setAttribute("data-theme", saved || (prefersDark ? "dark" : "light"));
+
+    document.getElementById("theme").addEventListener("click", function () {
+      var next = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
+      root.setAttribute("data-theme", next);
+      try { localStorage.setItem("theme", next); } catch (e) {}
+    });
+
+    document.getElementById("yr").textContent = new Date().getFullYear();
+  })();
+</script>
+</body>
+</html>
